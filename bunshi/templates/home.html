@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.65, maximum-scale=1.0, user-scalable=no">
+        <link href="https://fonts.googleapis.com/css?family=Nothing You Could Do" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/main.css">
+        <link rel="shortcut icon" href="static/images/benzeneIcon.png">
+        <title> Chem Finder </title>
+    </head>
+
+    <header>
+        <!-- Title & description
+        ----------------------------------------------------------------------->
+        <br>
+        <h1 class="main-header"> Chem Finder </h1>
+        <p>
+            Search for the bond-line structure of any compound or molecule!
+            Enter a valid <a href="https://en.wikipedia.org/wiki/IUPAC_nomenclature_of_organic_chemistry" target="_blank">IUPAC</a> or common name below
+        </p>
+    </header>
+
+    <div class="main-container">
+        <body>
+            <!-- Alert
+            ------------------------------------------------------------------->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <p class="flashes">
+                        Alert! {{ message }}
+                    </p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <!-- Search bar
+            ------------------------------------------------------------------->
+            <br>
+            <form class="search-bar" method="post">
+                <input name="compound" id="compound" required> </input>
+                <input class="search-button" type="submit" value="Search"> </input>
+            </form>
+
+            <!-- Image of molecule
+            ------------------------------------------------------------------->
+            {% if imageSource|length > 0 %}
+                {% if owoEgg %}
+                    <img class="owo-image" src="static/images/owo.png" alt="owo"></img>
+                {% else %}
+                    <img class="main-image" src="{{ imageSource }}" alt="Structure"></img>
+                {% endif %}
+
+                <p> <i> {{ compound }} </i> </p>
+
+                {% if preferred %}
+                    <p> Pref. IUPAC Name: <b> {{ IUPAC|safe }} </b> </p>
+                {% else %}
+                    <p> Molecular Name: <b> {{ IUPAC|safe }} </b> </p>
+                {% endif %}
+
+                <p> Molecular Formula: <b> {{ formula|safe }} </b> </p>
+                <p> Molecular Weight: <b> {{ weight }} g/mol </b> </p>
+                <p> Isomeric Smiles: <b> {{ isomericSmiles }} </b> </p>
+                <p> Hydrogen Bond Acceptor Count: <b> {{ hydrogenBondAcceptorCount }} </b> </p>
+                <p> IUPAC InChI: <b> {{ IUPACInChI }} </b> </p>
+                <p> Mono Isotopic Weight: <b> {{ MonoIsotopicWeight }} </b> </p>
+                <p> Isotope Atom Count: <b> {{ IsotopeAtomCount }} </b> </p>
+                <p> Rotatable Bond Count: <b> {{ RotatableBondCount }} </b> </p>
+                <p> Structure Complexity: <b> {{ StructureComplexity }} </b> </p>
+                <p> Non-Hydrogen Atom Count: <b> {{ NonHydrogenAtomCount }} </b> </p>
+                <p> Undefined Atom Stereo Count: <b> {{ UndefinedAtomStereoCount }} </b> </p>
+                <p> Undefined Bond Stereo Count: <b> {{ UndefinedBondStereoCount }} </b> </p>
+                <p> TPSA: <b> {{ TPSA }} </b> </p>
+                <p> Total Formal Charge: <b> {{ TotalFormalCharge }} </b> </p>
+                <p> Canonical SMILES: <b> {{ CanonicalSMILES }} </b> </p>
+                <p> Compound Identifier: <b> {{ CompoundIdentifier }} </b> </p>
+                <p> Defined Bond Stereo Count: <b> {{ DefinedBondStereoCount }} </b> </p>
+                <p> ExactMass: <b> {{ ExactMass }} </b> </p>
+                <p> Covalent Unit Count: <b> {{ CovalentUnitCount }} </b> </p>
+                <p> Defined Atom Stereo Count: <b> {{ DefinedAtomStereoCount }} </b> </p>
+                <p> XLogP3: <b> {{ XLogP3 }} </b> </p>
+
+
+                {% if acetateEgg %}
+                    <br>
+                    <a href="https://www.youtube.com/watch?v=4SYSaHLWAYc" target="_blank"> <i> Click me! </i> </a>
+                {% endif %}
+
+            {% endif %}
+
+            <!-- Error text, if name is incorrect
+            ------------------------------------------------------------------->
+            {% if error %}
+                <br> <br>
+                <h2> Couldn't find </h2>
+                <h1> {{ compound }} </h1>
+                <h2> Try using the correct <br> IUPAC or common name. </h2>
+                <br> <br>
+            {% endif %}
+
+        </body>
+    </div>
+
+    <!-- footer
+    ----------------------------------------------------------------------->
+    <footer>
+
+    </footer>
+
+</html>
