@@ -2,7 +2,7 @@
 
 ### Method 1:
 
-Run the shell script on a Mac...
+Run the shell script on a Mac/Linux...
 ```
 $ bash run.sh
 ```
