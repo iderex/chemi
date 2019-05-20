@@ -2,7 +2,7 @@
   <items>
     <item name="_Molecular_Formula"></item>
     <item name="_Molecular_Weight"></item>
-    <!--<item name="_IUPAC_InChI"></item>
+    <item name="_IUPAC_InChI"></item>
     <item name="_Hydrogen_Bond_Acceptor_Count"></item>
     <item name="_Isomeric_SMILES"></item>
     <item name="_Hydrogen_Bond_Donor_Count"></item>
@@ -21,6 +21,6 @@
     <item name="_Exact_Mass"></item>
     <item name="_Covalent_Unit_Count"></item>
     <item name="_Defined_Atom_Stereo_Count"></item>
-    <item name="_XLogP3"></item>-->
+    <item name="_XLogP3"></item>
   </items>
 </data>

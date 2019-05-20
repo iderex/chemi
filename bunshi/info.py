@@ -76,6 +76,6 @@ def getInfo(CID):
         info.append(getDescribtorValue(CID, i.attributes['name'].value))
 
     info[0] = prettifyFormula(info[0])
-    #info[2] = cleanIUPACInChI(info[2])
+    info[2] = cleanIUPACInChI(info[2])
 
     return info

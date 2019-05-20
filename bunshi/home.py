@@ -48,7 +48,6 @@ def home():
             info = getInfo(initInfo[4])
             formula = info[0]
             weight = info[1]
-            '''
             IUPACInChI = info[2]
             hydrogenBondAcceptorCount = info[3]
             isomericSmiles = info[4]
@@ -69,7 +68,6 @@ def home():
             CovalentUnitCount = info[19]
             DefinedAtomStereoCount = info[20]
             XLogP3 = info[21]
-            '''
 
             if IUPAC == "dioxotungsten":
                 owoEgg = True
